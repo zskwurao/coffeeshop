@@ -7,6 +7,15 @@ public class Comment implements Serializable {
     private Integer uId;
     private  Integer pId;
     private String content;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;

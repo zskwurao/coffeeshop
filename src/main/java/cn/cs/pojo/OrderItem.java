@@ -1,15 +1,35 @@
 package cn.cs.pojo;
 
+import org.springframework.dao.DataRetrievalFailureException;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class OrderItem implements Serializable {
     private Integer id;
-    private Integer oId;
+    private String oId;
     private Integer pId;
     private Integer numbers;
     private Boolean status;
     private Date createTime;
+    private String name;
+    private String image;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Integer getId() {
         return id;
@@ -19,11 +39,11 @@ public class OrderItem implements Serializable {
         this.id = id;
     }
 
-    public Integer getoId() {
+    public String getoId() {
         return oId;
     }
 
-    public void setoId(Integer oId) {
+    public void setoId(String oId) {
         this.oId = oId;
     }
 
@@ -52,7 +72,7 @@ public class OrderItem implements Serializable {
     }
 
     public Date getCreateTime() {
-        return createTime;
+        return new Date();
     }
 
     public void setCreateTime(Date createTime) {

@@ -6,11 +6,29 @@ public class Product implements Serializable {
     private Integer id;
     private String name;
     private Integer dictId;
+    private String type;
     private Integer price;
     private String desc;
     private String image;
     private Integer number;
     private Boolean status;
+    private Integer paynum;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getPaynum() {
+        return paynum;
+    }
+
+    public void setPaynum(Integer paynum) {
+        this.paynum = paynum;
+    }
 
     public Integer getId() {
         return id;

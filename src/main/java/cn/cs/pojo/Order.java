@@ -2,20 +2,31 @@ package cn.cs.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Order implements Serializable {
-    private Integer id;
+    private String id;
     private Integer uId;
     private Integer totalprice;
     private Boolean status;
     private Date createTime;
     private Date payTime;
 
-    public Integer getId() {
+    private List<OrderItem> orderItems;
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -44,7 +55,7 @@ public class Order implements Serializable {
     }
 
     public Date getCreateTime() {
-        return createTime;
+        return new Date();
     }
 
     public void setCreateTime(Date createTime) {

@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class Dict implements Serializable {
     private Integer id;
     private String type;
-    private String name;
     private Integer sort;
     private Boolean status;
 
@@ -25,13 +24,7 @@ public class Dict implements Serializable {
         this.type = type;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Integer getSort() {
         return sort;

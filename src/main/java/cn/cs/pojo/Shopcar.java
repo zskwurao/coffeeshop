@@ -10,6 +10,36 @@ public class Shopcar implements Serializable {
     private Integer num;
     private Boolean status;
     private Date createTime;
+    //商品单价
+    private Integer price;
+    //商品名称
+    private String name;
+    //图片路径
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
 
     public Integer getId() {
         return id;
@@ -52,7 +82,7 @@ public class Shopcar implements Serializable {
     }
 
     public Date getCreateTime() {
-        return createTime;
+        return new Date();
     }
 
     public void setCreateTime(Date createTime) {

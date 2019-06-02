@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.cs.mapper.ProductMapper" >
+
+    <insert id="addProduct" parameterType="Product">
+        insert into product
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="name != null" >
+                name,
+            </if>
+            <if test="dictId != null" >
+                dict_id,
+            </if>
+            <if test="price != null" >
+                price,
+            </if>
+            <if test="desc != null" >
+                `desc`,
+            </if>
+            <if test="image != null" >
+                image,
+            </if>
+            <if test="number != null" >
+                number,
+            </if>
+            <if test="status != null" >
+                status,
+            </if>
+            <if test="paynum != null" >
+                paynum,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null" >
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="dictId != null" >
+                #{dictId,jdbcType=BIT},
+            </if>
+            <if test="price != null" >
+                #{price,jdbcType=TIMESTAMP},
+            </if>
+            <if test="desc != null" >
+                #{desc,jdbcType=VARCHAR},
+            </if>
+            <if test="image != null" >
+                #{image,jdbcType=INTEGER},
+            </if>
+            <if test="number != null" >
+                #{number,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="status != null" >
+                #{status,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="paynum != null" >
+                #{paynum,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="getProductList" resultType="Product">
+        select
+              id      as id,
+              name    as name,
+              dict_id as dictId,
+              price   as price,
+              image   as image,
+              number  as number,
+              status  as status,
+              paynum  as paynum
+        from product where status = 1
+    </select>
+
+    <select id="getBestProductList" resultType="Product">
+        select
+            id      as id,
+            name    as name,
+            dict_id as dictId,
+            price   as price,
+            image   as image,
+            number  as number,
+            status  as status,
+            paynum  as paynum
+        from product WHERE STATUS =1 ORDER BY paynum DESC LIMIT 6
+    </select>
+
+    <select id="getProductById" resultType="Product">
+        select
+            id      as id,
+            name    as name,
+            dict_id as dictId,
+            price   as price,
+            image   as image,
+            number  as number,
+            status  as status,
+            paynum  as paynum
+        from product WHERE STATUS =1 and id = #{id}
+    </select>
+
+    <select id="count" resultType="Long">
+        select count(*)
+        from product
+    </select>
+
+    <select id="pageQuery" resultType="Product">
+        select p.id as id,
+               p.name as name,
+               d.type as type,
+               price as price,
+               `desc` as `desc`,
+               image as image,
+               `number` as number,
+               status as status,
+               paynum as paynum
+        from product p left join dict d on p.dict_id=d.id where p.status = 1
+    </select>
+
+    <select id="getProduct" parameterType="Integer" resultType="Product">
+        select * from product where id = #{id}
+    </select>
+
+    <update id="updateProduct" parameterType="Product">
+        update product
+        set number = number-#{number},
+            paynum = paynum+#{paynum}
+        where id = #{id}
+    </update>
+
+    <update id="updateProductById" parameterType="Integer">
+        update product
+        set status = 0
+        where id = #{id}
+    </update>
+</mapper>

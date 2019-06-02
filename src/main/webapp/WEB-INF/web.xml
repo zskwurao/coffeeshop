@@ -61,7 +61,22 @@
     <filter-name>CORS</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
+  <filter>
+    <filter-name>loginFilter</filter-name>
+    <filter-class>cn.cs.utils.LoginFilter</filter-class>
+    <init-param>
+      <param-name>noLoginPaths</param-name>
+      <param-value>orders;shopcar;addComment;address;getCommentList</param-value>
+    </init-param>
+    <init-param>
+      <param-name>charset</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>loginFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
   <!--配置dispatchServlet-->
   <servlet>

@@ -5,8 +5,35 @@ import java.io.Serializable;
 public class Address implements Serializable {
     private Integer id;
     private Integer userId;
+    private String username;
+    private String province;
+    private String city;
     private String address;
     private String telephone;
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public Integer getId() {
         return id;

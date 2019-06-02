@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.cs.mapper.DictMapper" >
+
+    <select id="getDictList" resultType="Dict">
+        select * from dict where enable = 1
+    </select>
+
+    <select id="getDictType" resultType="String">
+        select * from dict where enable = 1
+    </select>
+
+</mapper>
